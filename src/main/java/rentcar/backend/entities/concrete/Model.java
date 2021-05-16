@@ -8,21 +8,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @javax.persistence.Entity
-@Table(name = "brands")
-public class Brand implements Entity {
+@Table(name = "models")
+public class Model implements Entity {
 
     @Id
-    @GeneratedValue
     @Column(name = "id")
-    public int id;
+    @GeneratedValue
+    private int id;
+
+    @Column(name = "brand_id")
+    private int brandId;
 
     @Column(name = "name")
-    public String name;
+    private int name;
 
-    public Brand(){}
+    public Model(){}
 
-    public Brand(int id, String name) {
+    public Model(int id, int brandId, int name) {
         this.id = id;
+        this.brandId = brandId;
         this.name = name;
     }
 
@@ -34,11 +38,19 @@ public class Brand implements Entity {
         this.id = id;
     }
 
-    public String getName() {
+    public int getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(int brandId) {
+        this.brandId = brandId;
+    }
+
+    public int getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(int name) {
         this.name = name;
     }
 

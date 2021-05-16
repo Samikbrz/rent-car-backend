@@ -1,4 +1,104 @@
 package rentcar.backend.entities.concrete;
 
-public class Car {
+import rentcar.backend.entities.abstracts.Entity;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@javax.persistence.Entity
+@Table(name = "cars")
+public class Car implements Entity {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "brand_id")
+    private int brandId;
+
+    @Column(name = "model_id")
+    private int modelId;
+
+    @Column(name = "color_id")
+    private int colorId;
+
+    @Column(name = "model_year")
+    private String modelYear;
+
+    @Column(name = "daily_price")
+    private int dailyPrice;
+
+    @Column(name = "description")
+    private String description;
+
+    public Car(){}
+
+    public Car(int id, int brandId, int modelId, int colorId, String modelYear, int dailyPrice, String description) {
+        this.id = id;
+        this.brandId = brandId;
+        this.modelId = modelId;
+        this.colorId = colorId;
+        this.modelYear = modelYear;
+        this.dailyPrice = dailyPrice;
+        this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(int brandId) {
+        this.brandId = brandId;
+    }
+
+    public int getModelId() {
+        return modelId;
+    }
+
+    public void setModelId(int modelId) {
+        this.modelId = modelId;
+    }
+
+    public int getColorId() {
+        return colorId;
+    }
+
+    public void setColorId(int colorId) {
+        this.colorId = colorId;
+    }
+
+    public String getModelYear() {
+        return modelYear;
+    }
+
+    public void setModelYear(String modelYear) {
+        this.modelYear = modelYear;
+    }
+
+    public int getDailyPrice() {
+        return dailyPrice;
+    }
+
+    public void setDailyPrice(int dailyPrice) {
+        this.dailyPrice = dailyPrice;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

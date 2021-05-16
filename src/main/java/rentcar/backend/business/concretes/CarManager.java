@@ -1,0 +1,25 @@
+package rentcar.backend.business.concretes;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import rentcar.backend.business.abstracts.CarService;
+import rentcar.backend.dataaccess.abstracts.CarRepository;
+import rentcar.backend.entities.concrete.Car;
+
+import java.util.List;
+
+@Service
+public class CarManager implements CarService {
+
+    private CarRepository carRepository;
+
+    @Autowired
+    public CarManager(CarRepository carRepository){
+        this.carRepository=carRepository;
+    }
+
+    @Override
+    public List<Car> getAll() {
+        return carRepository.findAll();
+    }
+}

@@ -1,32 +1,45 @@
 package rentcar.backend.entities.concrete;
 
-import rentcar.backend.core.entities.Model;
+import rentcar.backend.entities.abstracts.Entity;
 
-public class Color implements Model {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-    public int Id;
-    public String Name;
+@javax.persistence.Entity
+@Table(name = "colors")
+public class Color implements Entity {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    public int id;
+
+    @Column(name = "name")
+    public String name;
+
+    public Color(){}
 
     public Color(int id, String name) {
-        Id = id;
-        Name = name;
+        this.id = id;
+        this.name = name;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
-
 
 }
