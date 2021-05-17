@@ -22,8 +22,8 @@ public class Car implements Entity {
     @Column(name = "model_id")
     private int modelId;
 
-    @Column(name = "color_id")
-    private int colorId;
+    @Column(name = "color_name")
+    private String colorName;
 
     @Column(name = "model_year")
     private String modelYear;
@@ -36,11 +36,11 @@ public class Car implements Entity {
 
     public Car(){}
 
-    public Car(int id, int brandId, int modelId, int colorId, String modelYear, int dailyPrice, String description) {
+    public Car(int id, int brandId, int modelId, String colorName, String modelYear, int dailyPrice, String description) {
         this.id = id;
         this.brandId = brandId;
         this.modelId = modelId;
-        this.colorId = colorId;
+        this.colorName = colorName;
         this.modelYear = modelYear;
         this.dailyPrice = dailyPrice;
         this.description = description;
@@ -70,12 +70,12 @@ public class Car implements Entity {
         this.modelId = modelId;
     }
 
-    public int getColorId() {
-        return colorId;
+    public String getColorName() {
+        return colorName;
     }
 
-    public void setColorId(int colorId) {
-        this.colorId = colorId;
+    public void setColorName(String colorName) {
+        this.colorName = colorName;
     }
 
     public String getModelYear() {
