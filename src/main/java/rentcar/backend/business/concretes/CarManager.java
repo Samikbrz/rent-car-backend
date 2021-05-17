@@ -19,7 +19,7 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public List<Car> getAll() {
+    public List<Car> getAllCars() {
         return carRepository.findAll();
     }
 }

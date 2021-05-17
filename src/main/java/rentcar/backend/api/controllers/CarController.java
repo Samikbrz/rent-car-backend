@@ -10,7 +10,7 @@ import rentcar.backend.entities.concrete.Car;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/cars")
+@RequestMapping("/cars")
 public class CarController {
 
     private CarService carService;
@@ -20,8 +20,8 @@ public class CarController {
         this.carService=carService;
     }
 
-    @GetMapping("getall")
-    public List<Car> getAll(){
-        return carService.getAll();
+    @GetMapping
+    public List<Car> getAllCars(){
+        return carService.getAllCars();
     }
 }

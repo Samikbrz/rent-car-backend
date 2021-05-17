@@ -10,7 +10,7 @@ import rentcar.backend.entities.concrete.Brand;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/brands")
+@RequestMapping("/brands")
 public class BrandController {
 
     private BrandService brandService;
@@ -20,8 +20,8 @@ public class BrandController {
         this.brandService=brandService;
     }
 
-    @GetMapping("getall")
-    public List<Brand> getAll(){
-        return brandService.getAll();
+    @GetMapping
+    public List<Brand> getAllBrands(){
+        return brandService.getAllBrands();
     }
 }
