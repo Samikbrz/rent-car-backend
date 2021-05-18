@@ -5,4 +5,6 @@ import rentcar.backend.entities.concrete.Car;
 public interface CarService {
 
     Iterable<Car> getAllCars();
+
+    Car addCar(Car car);
 }

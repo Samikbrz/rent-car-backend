@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
 import rentcar.backend.business.abstracts.CarService;
 import rentcar.backend.entities.concrete.Car;
 
@@ -21,5 +23,10 @@ public class CarController {
     @GetMapping
     public Iterable<Car> getAllCars(){
         return carService.getAllCars();
+    }
+
+    @PostMapping
+    public Car addCar(@RequestBody Car car){
+        return carService.addCar(car);
     }
 }

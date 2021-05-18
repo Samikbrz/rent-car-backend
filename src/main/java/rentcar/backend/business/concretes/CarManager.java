@@ -22,4 +22,9 @@ public class CarManager implements CarService {
     public Iterable<Car> getAllCars() {
         return carRepository.findAll();
     }
+
+    @Override
+    public Car addCar(Car car) {
+        return carRepository.save(car);
+    }
 }
