@@ -7,13 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import rentcar.backend.business.abstracts.ModelService;
 import rentcar.backend.entities.concrete.Model;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/models")
 public class ModelController {
 
-    private ModelService modelService;
+    private final ModelService modelService;
 
     @Autowired
     public ModelController(ModelService modelService){
@@ -21,7 +19,7 @@ public class ModelController {
     }
 
     @GetMapping
-    public List<Model> getAll(){
+    public Iterable<Model> getAll(){
         return modelService.getAllModels();
     }
 }

@@ -7,13 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import rentcar.backend.business.abstracts.CarService;
 import rentcar.backend.entities.concrete.Car;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/cars")
 public class CarController {
 
-    private CarService carService;
+    private final CarService carService;
 
     @Autowired
     public CarController(CarService carService){
@@ -21,7 +19,7 @@ public class CarController {
     }
 
     @GetMapping
-    public List<Car> getAllCars(){
+    public Iterable<Car> getAllCars(){
         return carService.getAllCars();
     }
 }

@@ -17,7 +17,7 @@ public class ModelManager implements ModelService {
     }
 
     @Override
-    public List<Model> getAllModels() {
+    public Iterable<Model> getAllModels() {
         return modelRepository.findAll();
     }
 }

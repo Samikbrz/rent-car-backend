@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ModelService {
 
-    List<Model> getAllModels();
+    Iterable<Model> getAllModels();
 }

@@ -6,8 +6,6 @@ import rentcar.backend.business.abstracts.BrandService;
 import rentcar.backend.dataaccess.abstracts.BrandRepository;
 import rentcar.backend.entities.concrete.Brand;
 
-import java.util.List;
-
 @Service
 public class BrandManager implements BrandService {
 
@@ -19,7 +17,7 @@ public class BrandManager implements BrandService {
     }
 
     @Override
-    public List<Brand> getAllBrands() {
+    public Iterable<Brand> getAllBrands() {
         return brandRepository.findAll();
     }
 }
