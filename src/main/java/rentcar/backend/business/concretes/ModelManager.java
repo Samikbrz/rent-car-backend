@@ -5,8 +5,6 @@ import rentcar.backend.business.abstracts.ModelService;
 import rentcar.backend.dataaccess.abstracts.ModelRepository;
 import rentcar.backend.entities.concrete.Model;
 
-import java.util.List;
-
 @Service
 public class ModelManager implements ModelService {
 
@@ -19,5 +17,10 @@ public class ModelManager implements ModelService {
     @Override
     public Iterable<Model> getAllModels() {
         return modelRepository.findAll();
+    }
+
+    @Override
+    public Model addModel(Model model) {
+        return modelRepository.save(model);
     }
 }

@@ -2,9 +2,9 @@ package rentcar.backend.business.abstracts;
 
 import rentcar.backend.entities.concrete.Model;
 
-import java.util.List;
-
 public interface ModelService {
 
     Iterable<Model> getAllModels();
+
+    Model addModel(Model model);
 }

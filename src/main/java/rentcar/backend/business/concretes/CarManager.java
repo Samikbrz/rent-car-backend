@@ -6,8 +6,6 @@ import rentcar.backend.business.abstracts.CarService;
 import rentcar.backend.dataaccess.abstracts.CarRepository;
 import rentcar.backend.entities.concrete.Car;
 
-import java.util.List;
-
 @Service
 public class CarManager implements CarService {
 
