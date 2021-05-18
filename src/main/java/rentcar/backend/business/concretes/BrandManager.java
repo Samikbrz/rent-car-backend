@@ -20,4 +20,9 @@ public class BrandManager implements BrandService {
     public Iterable<Brand> getAllBrands() {
         return brandRepository.findAll();
     }
+
+    @Override
+    public Brand addBrand(Brand brand) {
+        return brandRepository.save(brand);
+    }
 }

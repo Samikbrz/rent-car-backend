@@ -5,4 +5,6 @@ import rentcar.backend.entities.concrete.Brand;
 public interface BrandService {
 
     Iterable<Brand> getAllBrands();
+
+    Brand addBrand(Brand brand);
 }
