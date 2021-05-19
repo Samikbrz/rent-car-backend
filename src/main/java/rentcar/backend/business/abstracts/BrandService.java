@@ -7,5 +7,5 @@ public interface BrandService {
     Iterable<Brand> getAllBrands();
     Brand addBrand(Brand brand);
     void deleteBrand(int id);
-
+    Brand updateBrand(Brand brand);
 }

@@ -7,5 +7,5 @@ public interface ModelService {
     Iterable<Model> getAllModels();
     Model addModel(Model model);
     void deleteModel(int id);
-    
+
 }
