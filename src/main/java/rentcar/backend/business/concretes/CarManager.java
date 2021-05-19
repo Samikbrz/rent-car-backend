@@ -9,7 +9,7 @@ import rentcar.backend.entities.concrete.Car;
 @Service
 public class CarManager implements CarService {
 
-    private CarRepository carRepository;
+    private final CarRepository carRepository;
 
     @Autowired
     public CarManager(CarRepository carRepository){
@@ -25,4 +25,10 @@ public class CarManager implements CarService {
     public Car addCar(Car car) {
         return carRepository.save(car);
     }
+
+    @Override
+    public void deleteCar(int id) {
+        carRepository.deleteById(id);
+    }
+
 }

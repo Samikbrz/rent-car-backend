@@ -8,7 +8,7 @@ import rentcar.backend.entities.concrete.Model;
 @Service
 public class ModelManager implements ModelService {
 
-    private ModelRepository modelRepository;
+    private final ModelRepository modelRepository;
 
     public ModelManager(ModelRepository modelRepository){
         this.modelRepository=modelRepository;

@@ -9,7 +9,7 @@ import rentcar.backend.entities.concrete.Brand;
 @Service
 public class BrandManager implements BrandService {
 
-    private BrandRepository brandRepository;
+    private final BrandRepository brandRepository;
 
     @Autowired
     public BrandManager(BrandRepository brandRepository){
