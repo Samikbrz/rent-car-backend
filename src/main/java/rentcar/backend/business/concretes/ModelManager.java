@@ -15,6 +15,8 @@ public class ModelManager implements ModelService {
 
     private final ModelRepository modelRepository;
 
+    private Optional<Model> optionalModel;
+
     public ModelManager(ModelRepository modelRepository){
         this.modelRepository=modelRepository;
     }
@@ -26,7 +28,7 @@ public class ModelManager implements ModelService {
 
     @Override
     public Model addModel(Model model) {
-        if (!modelIsPresent(model)){
+        if (!modelIsPresent(model.getId())){
             throw new AlreadyExistsException("This model already exist");
         }
         return modelRepository.save(model);
@@ -34,19 +36,22 @@ public class ModelManager implements ModelService {
 
     @Override
     public void deleteModel(int id) {
+        if (!modelIsPresent(id)){
+            throw new NotFoundException("Model is not found!");
+        }
         modelRepository.deleteById(id);
     }
 
     @Override
     public Model updateModel(Model model) {
-        if (!modelIsPresent(model)){
+        if (!modelIsPresent(model.getId())){
             throw new NotFoundException("Model is not found!");
         }
         return modelRepository.save(model);
     }
 
-    private boolean modelIsPresent(Model model){
-        Optional<Model> optionalModel= modelRepository.findById(model.getId());
+    private boolean modelIsPresent(int id){
+        optionalModel= modelRepository.findById(id);
         if (!optionalModel.isPresent()){
             return true;
         }

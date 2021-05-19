@@ -30,7 +30,7 @@ public class BrandManager implements BrandService {
 
     @Override
     public Brand addBrand(Brand brand) {
-        if (!brandIsPresent(brand)){
+        if (!brandIsPresent(brand.getId())){
             throw new AlreadyExistsException("This brand already exist!");
         }
         return brandRepository.save(brand);
@@ -39,8 +39,7 @@ public class BrandManager implements BrandService {
     @Override
     @Transactional
     public void deleteBrand(int id) {
-        optionalBrand=brandRepository.findById(id);
-        if (optionalBrand.isPresent()){
+        if (!brandIsPresent(id)){
             throw new NotFoundException("Brand is not found!");
         }
         brandRepository.deleteById(id);
@@ -49,14 +48,14 @@ public class BrandManager implements BrandService {
     @Override
     @Transactional
     public Brand updateBrand(Brand brand) {
-        if (!brandIsPresent(brand)){
+        if (!brandIsPresent(brand.getId())){
             throw new NotFoundException("Brand is not found");
         }
         return brandRepository.save(brand);
     }
 
-    private boolean brandIsPresent(Brand brand){
-        optionalBrand= brandRepository.findById(brand.getId());
+    private boolean brandIsPresent(int id){
+        optionalBrand= brandRepository.findById(id);
         if (!optionalBrand.isPresent()){
             return true;
         }

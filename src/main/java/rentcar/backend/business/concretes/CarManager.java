@@ -16,6 +16,8 @@ public class CarManager implements CarService {
 
     private final CarRepository carRepository;
 
+    private Optional<Car> optionalCar;
+
     @Autowired
     public CarManager(CarRepository carRepository){
         this.carRepository=carRepository;
@@ -28,7 +30,7 @@ public class CarManager implements CarService {
 
     @Override
     public Car addCar(Car car) {
-        if (!carIsPresent(car)){
+        if (!carIsPresent(car.getId())){
             throw new AlreadyExistsException("This car already exist!");
         }
         return carRepository.save(car);
@@ -37,20 +39,23 @@ public class CarManager implements CarService {
     @Override
     @Transactional
     public void deleteCar(int id) {
+        if(!carIsPresent(id)){
+           throw new NotFoundException("Car is not found");
+        }
         carRepository.deleteById(id);
     }
 
     @Override
     @Transactional
     public Car updateCar(Car car) {
-        if (!carIsPresent(car)){
+        if (!carIsPresent(car.getId())){
             throw new NotFoundException("Car is not found!");
         }
         return carRepository.save(car);
     }
 
-    private boolean carIsPresent(Car car){
-        Optional<Car> optionalCar= carRepository.findById(car.getId());
+    private boolean carIsPresent(int id){
+        optionalCar= carRepository.findById(id);
         if (!optionalCar.isPresent()){
             return true;
         }
