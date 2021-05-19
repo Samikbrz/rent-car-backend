@@ -25,4 +25,9 @@ public class BrandManager implements BrandService {
     public Brand addBrand(Brand brand) {
         return brandRepository.save(brand);
     }
+
+    @Override
+    public void deleteBrand(int id) {
+        brandRepository.deleteById(id);
+    }
 }
