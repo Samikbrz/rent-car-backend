@@ -30,9 +30,6 @@ public class BrandManager implements BrandService {
 
     @Override
     public Brand addBrand(Brand brand) {
-        if (!brandIsPresent(brand.getId())){
-            throw new AlreadyExistsException("This brand already exist!");
-        }
         return brandRepository.save(brand);
     }
 

@@ -30,9 +30,6 @@ public class CarManager implements CarService {
 
     @Override
     public Car addCar(Car car) {
-        if (!carIsPresent(car.getId())){
-            throw new AlreadyExistsException("This car already exist!");
-        }
         return carRepository.save(car);
     }
 

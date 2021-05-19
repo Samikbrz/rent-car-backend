@@ -28,9 +28,6 @@ public class ModelManager implements ModelService {
 
     @Override
     public Model addModel(Model model) {
-        if (!modelIsPresent(model.getId())){
-            throw new AlreadyExistsException("This model already exist");
-        }
         return modelRepository.save(model);
     }
 
