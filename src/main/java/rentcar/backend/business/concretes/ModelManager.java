@@ -23,4 +23,9 @@ public class ModelManager implements ModelService {
     public Model addModel(Model model) {
         return modelRepository.save(model);
     }
+
+    @Override
+    public void deleteModel(int id) {
+        modelRepository.deleteById(id);
+    }
 }
