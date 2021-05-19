@@ -20,11 +20,11 @@ public class Model implements Entity {
     private int brandId;
 
     @Column(name = "name")
-    private int name;
+    private String name;
 
     public Model(){}
 
-    public Model(int id, int brandId, int name) {
+    public Model(int id, int brandId, String name) {
         this.id = id;
         this.brandId = brandId;
         this.name = name;
@@ -46,11 +46,11 @@ public class Model implements Entity {
         this.brandId = brandId;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
