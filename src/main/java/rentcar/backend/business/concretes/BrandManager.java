@@ -41,7 +41,7 @@ public class BrandManager implements BrandService {
     @Override
     @Transactional
     public void deleteBrand(int id) {
-        if (!brandIsPresent(id)){
+        if (brandIsPresent(id)){
             throw new NotFoundException("Brand is not found!");
         }
         brandRepository.deleteById(id);

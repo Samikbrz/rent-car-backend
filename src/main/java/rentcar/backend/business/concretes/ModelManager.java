@@ -33,7 +33,7 @@ public class ModelManager implements ModelService {
 
     @Override
     public void deleteModel(int id) {
-        if (!modelIsPresent(id)){
+        if (modelIsPresent(id)){
             throw new NotFoundException("Model is not found!");
         }
         modelRepository.deleteById(id);
