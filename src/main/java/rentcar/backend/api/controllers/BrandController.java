@@ -40,6 +40,7 @@ public class BrandController {
 
     @PutMapping("/{id}")
     public Brand updateBrand(@RequestBody Brand brand,@PathVariable int id){
+        brand.setId(id);
         return brandService.updateBrand(brand);
     }
 }

@@ -3,8 +3,13 @@ package rentcar.backend.business.concretes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rentcar.backend.business.abstracts.CarService;
+import rentcar.backend.core.exception.AlreadyExistsException;
+import rentcar.backend.core.exception.NotFoundException;
 import rentcar.backend.dataaccess.abstracts.CarRepository;
 import rentcar.backend.entities.concrete.Car;
+
+import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 public class CarManager implements CarService {
@@ -23,12 +28,32 @@ public class CarManager implements CarService {
 
     @Override
     public Car addCar(Car car) {
+        if (!carIsPresent(car)){
+            throw new AlreadyExistsException("This car already exist!");
+        }
         return carRepository.save(car);
     }
 
     @Override
+    @Transactional
     public void deleteCar(int id) {
         carRepository.deleteById(id);
     }
 
+    @Override
+    @Transactional
+    public Car updateCar(Car car) {
+        if (!carIsPresent(car)){
+            throw new NotFoundException("Car is not found!");
+        }
+        return carRepository.save(car);
+    }
+
+    private boolean carIsPresent(Car car){
+        Optional<Car> optionalCar= carRepository.findById(car.getId());
+        if (!optionalCar.isPresent()){
+            return true;
+        }
+        return false;
+    }
 }

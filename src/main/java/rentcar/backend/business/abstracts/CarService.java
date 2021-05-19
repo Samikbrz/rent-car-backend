@@ -7,5 +7,5 @@ public interface CarService {
     Iterable<Car> getAllCars();
     Car addCar(Car car);
     void deleteCar(int id);
-
+    Car updateCar(Car car);
 }
