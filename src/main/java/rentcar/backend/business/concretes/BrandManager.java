@@ -29,7 +29,12 @@ public class BrandManager implements BrandService {
     }
 
     @Override
+    @Transactional
     public Brand addBrand(Brand brand) {
+        optionalBrand=brandRepository.findByName(brand.getName());
+        if (optionalBrand.isPresent()){
+            throw new AlreadyExistsException("This brand already exist!");
+        }
         return brandRepository.save(brand);
     }
 
