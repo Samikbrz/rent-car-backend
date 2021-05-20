@@ -1,8 +1,8 @@
-package rentcar.backend.dataaccess.abstracts;
+package rentcar.backend.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import rentcar.backend.entities.concrete.Car;
+import rentcar.backend.entity.Car;
 
 @Repository
 public interface CarRepository extends CrudRepository<Car,Integer> {

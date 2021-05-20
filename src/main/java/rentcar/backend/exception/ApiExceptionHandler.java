@@ -1,11 +1,11 @@
-package rentcar.backend.core.exception;
+package rentcar.backend.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import rentcar.backend.entities.concrete.ErrorResponse;
+import rentcar.backend.entity.ErrorResponse;
 
 import java.io.IOException;
 

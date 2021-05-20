@@ -1,16 +1,15 @@
-package rentcar.backend.entities.concrete;
-
-import rentcar.backend.entities.abstracts.Entity;
+package rentcar.backend.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.GenerationType;
 
-@javax.persistence.Entity
+@Entity
 @Table(name = "models")
-public class Model implements Entity {
+public class Model implements DataModel {
 
     @Id
     @Column(name = "id")
@@ -23,7 +22,8 @@ public class Model implements Entity {
     @Column(name = "name")
     private String name;
 
-    public Model(){}
+    public Model() {
+    }
 
     public Model(int id, int brandId, String name) {
         this.id = id;

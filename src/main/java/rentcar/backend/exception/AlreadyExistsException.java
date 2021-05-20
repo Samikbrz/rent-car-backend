@@ -1,4 +1,4 @@
-package rentcar.backend.core.exception;
+package rentcar.backend.exception;
 
 import org.springframework.http.HttpStatus;
 

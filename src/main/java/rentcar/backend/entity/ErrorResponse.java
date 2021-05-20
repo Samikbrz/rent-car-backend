@@ -1,8 +1,6 @@
-package rentcar.backend.entities.concrete;
+package rentcar.backend.entity;
 
-import rentcar.backend.entities.abstracts.Entity;
-
-public class ErrorResponse implements Entity {
+public class ErrorResponse implements DataModel {
 
     private String code;
     private String message;

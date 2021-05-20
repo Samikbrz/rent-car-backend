@@ -1,16 +1,15 @@
-package rentcar.backend.entities.concrete;
-
-import rentcar.backend.entities.abstracts.Entity;
+package rentcar.backend.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@javax.persistence.Entity
+@Entity
 @Table(name = "cars")
-public class Car implements Entity {
+public class Car implements DataModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +34,8 @@ public class Car implements Entity {
     @Column(name = "description")
     private String description;
 
-    public Car(){}
+    public Car() {
+    }
 
     public Car(int id, int brandId, int modelId, String colorName, String modelYear, int dailyPrice, String description) {
         this.id = id;
