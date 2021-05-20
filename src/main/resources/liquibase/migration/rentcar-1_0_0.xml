@@ -26,4 +26,16 @@
             </column>
         </createTable>
     </changeSet>
+    <changeSet id="create_user_table" author="sami">
+        <createTable schemaName="${schema}" tableName="USER">
+            <column name="ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="FIRST_NAME" type="varchar(50)"/>
+            <column name="LAST_NAME" type="varchar(50)"/>
+            <column name="EMAIL" type="varchar(50)"/>
+            <column name="PASSWORD" type="varchar(50)"/>
+            <column name="STATUS" type="varchar(1)"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
