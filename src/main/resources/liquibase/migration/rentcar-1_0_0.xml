@@ -1,0 +1,41 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd"
+                   logicalFilePath="rentcar-1_0_0.xml">
+    <changeSet id="create_car_table" author="sami">
+        <createTable schemaName="${schema}" tableName="CAR">
+            <column name="ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="BRAND_ID" type="int"/>
+            <column name="MODEL_ID" type="int"/>
+            <column name="COLOR_NAME" type="varchar(25)"/>
+            <column name="MODEL_YEAR" type="varchar(4)"/>
+            <column name="DAILY_PRICE" type="float"/>
+            <column name="DESCRIPTION" type="varchar(250)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="create_brand_table" author="sami">
+        <createTable schemaName="${schema}" tableName="BRAND">
+            <column name="ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="NAME" type="varchar(50)"/>
+            <column name="BRAND_ID" type="bigint">
+                <constraints foreignKeyName="FK_BRAND_ID" references="BRAND(ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="create_model_table" author="sami">
+        <createTable schemaName="${schema}" tableName="MODEL">
+            <column name="ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="NAME" type="varchar(50)"/>
+            <column name="BRAND_ID" type="bigint">
+                <constraints foreignKeyName="FK_BRAND_ID" references="BRAND(ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

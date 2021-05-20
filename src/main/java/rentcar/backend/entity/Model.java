@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "models")
+@Table(name = "model")
 public class Model implements DataModel {
 
     @Id
