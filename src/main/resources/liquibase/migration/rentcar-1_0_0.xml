@@ -9,7 +9,6 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="BRAND_ID" type="int"/>
-            <column name="MODEL_ID" type="int"/>
             <column name="COLOR_NAME" type="varchar(25)"/>
             <column name="MODEL_YEAR" type="varchar(4)"/>
             <column name="DAILY_PRICE" type="float"/>
@@ -18,17 +17,6 @@
     </changeSet>
     <changeSet id="create_brand_table" author="sami">
         <createTable schemaName="${schema}" tableName="BRAND">
-            <column name="ID" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="NAME" type="varchar(50)"/>
-            <column name="BRAND_ID" type="bigint">
-                <constraints foreignKeyName="FK_BRAND_ID" references="BRAND(ID)"/>
-            </column>
-        </createTable>
-    </changeSet>
-    <changeSet id="create_model_table" author="sami">
-        <createTable schemaName="${schema}" tableName="MODEL">
             <column name="ID" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>

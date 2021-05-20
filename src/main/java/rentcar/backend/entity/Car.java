@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "car")
@@ -16,11 +18,9 @@ public class Car implements DataModel {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "brand_id")
-    private int brandId;
-
-    @Column(name = "model_id")
-    private int modelId;
+    @OneToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
     @Column(name = "color_name")
     private String colorName;
@@ -37,10 +37,9 @@ public class Car implements DataModel {
     public Car() {
     }
 
-    public Car(int id, int brandId, int modelId, String colorName, String modelYear, int dailyPrice, String description) {
+    public Car(int id, Brand brand, String colorName, String modelYear, int dailyPrice, String description) {
         this.id = id;
-        this.brandId = brandId;
-        this.modelId = modelId;
+        this.brand = brand;
         this.colorName = colorName;
         this.modelYear = modelYear;
         this.dailyPrice = dailyPrice;
@@ -53,22 +52,6 @@ public class Car implements DataModel {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getBrandId() {
-        return brandId;
-    }
-
-    public void setBrandId(int brandId) {
-        this.brandId = brandId;
-    }
-
-    public int getModelId() {
-        return modelId;
-    }
-
-    public void setModelId(int modelId) {
-        this.modelId = modelId;
     }
 
     public String getColorName() {
@@ -102,4 +85,13 @@ public class Car implements DataModel {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
 }
