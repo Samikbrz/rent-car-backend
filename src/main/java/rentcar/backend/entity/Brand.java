@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import javax.validation.constraints.NotBlank;
+
 @Entity
 @Table(name = "brand")
 public class Brand implements DataModel {
@@ -17,6 +19,7 @@ public class Brand implements DataModel {
     public int id;
 
     @Column(name = "name")
+    @NotBlank(message = "Name is mandatory")
     public String name;
 
     public Brand() {

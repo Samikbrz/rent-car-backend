@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import rentcar.backend.entity.Brand;
 import rentcar.backend.service.BrandService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/brands")
 public class BrandController {
@@ -29,7 +31,7 @@ public class BrandController {
     }
 
     @PostMapping
-    public Brand addBrand(@RequestBody Brand brand) {
+    public Brand addBrand(@Valid @RequestBody Brand brand) {
         return brandService.addBrand(brand);
     }
 
