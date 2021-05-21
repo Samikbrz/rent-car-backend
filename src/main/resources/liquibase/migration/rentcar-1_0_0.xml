@@ -51,4 +51,19 @@
             <column name="FINDEKS_SCORE" type="int"/>
         </createTable>
     </changeSet>
+    <changeSet id="create_rental_table" author="sami">
+        <createTable schemaName="${schema}" tableName="RENTAL">
+            <column name="ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="CAR_ID" type="bigint">
+                <constraints foreignKeyName="FK_CAR_ID" references="CAR(ID)"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints foreignKeyName="FK_USER_ID" references="USER(ID)"/>
+            </column>
+            <column name="RENT_DATE" type="datetime"/>
+            <column name="RETURN_DATE" type="datetime"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
