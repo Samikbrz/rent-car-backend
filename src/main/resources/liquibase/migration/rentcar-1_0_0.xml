@@ -38,4 +38,17 @@
             <column name="STATUS" type="varchar(1)"/>
         </createTable>
     </changeSet>
+    <changeSet id="create_customer_table" author="sami">
+        <createTable schemaName="${schema}" tableName="CUSTOMER">
+            <column name="ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints foreignKeyName="FK_USER_ID" references="USER(ID)"/>
+            </column>
+            <column name="PHONE_NUMBER" type="varchar(11)"/>
+            <column name="ADDRESS" type="varchar(250)"/>
+            <column name="FINDEKS_SCORE" type="int"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
