@@ -45,4 +45,5 @@ public class BrandController {
         brand.setId(id);
         return brandService.updateBrand(brand);
     }
+    
 }

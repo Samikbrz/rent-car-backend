@@ -22,4 +22,5 @@ public class UserController {
     public Iterable<User> getAllUsers(){
         return userService.getAllUsers();
     }
+
 }
