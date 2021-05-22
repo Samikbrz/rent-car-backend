@@ -29,7 +29,7 @@ public class BrandController {
 
     @GetMapping
     public DataResult<Iterable<Brand>> getAllBrands() {
-        return this.brandService.getAllBrands();
+        return brandService.getAllBrands();
     }
 
     @PostMapping

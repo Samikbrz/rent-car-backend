@@ -46,6 +46,6 @@ public class CarService {
 
     private boolean carIsPresent(int id) {
         optionalCar = carRepository.findById(id);
-        return !optionalCar.isPresent();
+        return optionalCar.isPresent();
     }
 }
