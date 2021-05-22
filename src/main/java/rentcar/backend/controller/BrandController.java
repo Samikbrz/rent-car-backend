@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import rentcar.backend.entity.Brand;
 import rentcar.backend.service.BrandService;
+import rentcar.backend.utilities.results.DataResult;
+import rentcar.backend.utilities.results.Result;
 
 import javax.validation.Valid;
 
@@ -26,8 +28,8 @@ public class BrandController {
     }
 
     @GetMapping
-    public Iterable<Brand> getAllBrands() {
-        return brandService.getAllBrands();
+    public DataResult<Iterable<Brand>> getAllBrands() {
+        return this.brandService.getAllBrands();
     }
 
     @PostMapping

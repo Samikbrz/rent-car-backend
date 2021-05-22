@@ -4,10 +4,13 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import rentcar.backend.constant.messages.Messages;
 import rentcar.backend.entity.Brand;
 import rentcar.backend.exception.AlreadyExistsException;
 import rentcar.backend.exception.NotFoundException;
 import rentcar.backend.repository.BrandRepository;
+import rentcar.backend.utilities.results.DataResult;
+import rentcar.backend.utilities.results.SuccessDataResult;
 
 @Service
 public class BrandService {
@@ -21,8 +24,8 @@ public class BrandService {
         this.brandRepository = brandRepository;
     }
 
-    public Iterable<Brand> getAllBrands() {
-        return brandRepository.findAll();
+    public DataResult<Iterable<Brand>> getAllBrands() {
+        return new SuccessDataResult<>(brandRepository.findAll(),Messages.listedBrands);
     }
 
     @Transactional
@@ -52,9 +55,6 @@ public class BrandService {
 
     private boolean brandIsPresent(int id) {
         optionalBrand = brandRepository.findById(id);
-        if (!optionalBrand.isPresent()) {
-            return true;
-        }
-        return false;
+        return optionalBrand.isEmpty();
     }
 }
