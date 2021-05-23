@@ -1,5 +1,9 @@
 package rentcar.backend.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +15,9 @@ import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "car")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Car implements DataModel {
 
     @Id
@@ -33,65 +40,5 @@ public class Car implements DataModel {
 
     @Column(name = "description")
     private String description;
-
-    public Car() {
-    }
-
-    public Car(int id, Brand brand, String colorName, String modelYear, int dailyPrice, String description) {
-        this.id = id;
-        this.brand = brand;
-        this.colorName = colorName;
-        this.modelYear = modelYear;
-        this.dailyPrice = dailyPrice;
-        this.description = description;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getColorName() {
-        return colorName;
-    }
-
-    public void setColorName(String colorName) {
-        this.colorName = colorName;
-    }
-
-    public String getModelYear() {
-        return modelYear;
-    }
-
-    public void setModelYear(String modelYear) {
-        this.modelYear = modelYear;
-    }
-
-    public int getDailyPrice() {
-        return dailyPrice;
-    }
-
-    public void setDailyPrice(int dailyPrice) {
-        this.dailyPrice = dailyPrice;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Brand getBrand() {
-        return brand;
-    }
-
-    public void setBrand(Brand brand) {
-        this.brand = brand;
-    }
 
 }

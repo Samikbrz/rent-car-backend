@@ -1,5 +1,9 @@
 package rentcar.backend.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +15,9 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "brand")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Brand implements DataModel {
 
     @Id
@@ -21,29 +28,5 @@ public class Brand implements DataModel {
     @Column(name = "name")
     @NotBlank(message = "Name is mandatory")
     public String name;
-
-    public Brand() {
-    }
-
-    public Brand(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }
