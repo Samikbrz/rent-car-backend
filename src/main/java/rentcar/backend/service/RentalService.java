@@ -38,6 +38,14 @@ public class RentalService {
         rentalRepository.deleteById(id);
     }
 
+    @Transactional
+    public Rental updateRental(Rental rental){
+        if (rentalIsPresent(rental.getId())){
+            throw new NotFoundException("Rental is not found");
+        }
+        return rentalRepository.save(rental);
+    }
+
     private boolean rentalIsPresent(int id) {
         optionalRental = rentalRepository.findById(id);
         return optionalRental.isPresent();
