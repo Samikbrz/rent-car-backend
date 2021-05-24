@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import rentcar.backend.entity.Rental;
 import rentcar.backend.repository.RentalRepository;
 
+import javax.transaction.Transactional;
+
 @Service
 public class RentalService {
 
@@ -17,5 +19,10 @@ public class RentalService {
 
     public Iterable<Rental> getAllRentals(){
         return rentalRepository.findAll();
+    }
+
+    @Transactional
+    public Rental addRental(Rental rental){
+        return rentalRepository.save(rental);
     }
 }
