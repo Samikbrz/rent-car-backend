@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import rentcar.backend.entity.User;
 import rentcar.backend.repository.UserRepository;
 
+import javax.transaction.Transactional;
+
 @Service
 public class UserService {
 
@@ -18,4 +20,10 @@ public class UserService {
     public Iterable<User> getAllUsers(){
         return userRepository.findAll();
     }
+
+    @Transactional
+    public User addUser(User user){
+        return userRepository.save(user);
+    }
+
 }
