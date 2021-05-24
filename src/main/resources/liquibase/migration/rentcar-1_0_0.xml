@@ -35,7 +35,7 @@
             <column name="TC_NO" type="varchar(11)"/>
             <column name="EMAIL" type="varchar(50)"/>
             <column name="PASSWORD" type="varchar(50)"/>
-            <column name="STATUS" type="varchar(3)"/>
+            <column name="IS_ACTIVE" type="varchar(3)"/>
         </createTable>
     </changeSet>
     <changeSet id="create_customer_table" author="sami">

@@ -31,11 +31,11 @@ public class Customer implements DataModel{
     private User user;
 
     @Column(name = "phone_number")
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Phone number is mandatory")
     private String phoneNumber;
 
     @Column(name = "address")
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Address is mandatory")
     private String address;
 
     @Column(name = "findeks_score")

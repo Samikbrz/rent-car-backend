@@ -28,23 +28,23 @@ public class Car implements DataModel {
 
     @OneToOne
     @JoinColumn(name = "brand_id")
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Brand is mandatory")
     private Brand brand;
 
     @Column(name = "color_name")
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Color name is mandatory")
     private String colorName;
 
     @Column(name = "model_year")
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Model year is mandatory")
     private String modelYear;
 
     @Column(name = "daily_price")
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Daily price is mandatory")
     private int dailyPrice;
 
     @Column(name = "description")
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Description is mandatory")
     private String description;
 
 }
