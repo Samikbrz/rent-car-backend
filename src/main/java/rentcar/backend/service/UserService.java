@@ -40,7 +40,7 @@ public class UserService {
 
     @Transactional
     public void deleteUser(int id){
-        if (userIsPresent(id)){
+        if (!userIsPresent(id)){
             throw new NotFoundException("User is not found!");
         }
         userRepository.deleteById(id);

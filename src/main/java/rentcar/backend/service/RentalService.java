@@ -32,7 +32,7 @@ public class RentalService {
 
     @Transactional
     public void deleteRental(int id){
-        if (rentalIsPresent(id)){
+        if (!rentalIsPresent(id)){
             throw new NotFoundException("Rental is not found");
         }
         rentalRepository.deleteById(id);

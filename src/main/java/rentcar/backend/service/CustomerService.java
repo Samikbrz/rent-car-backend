@@ -32,7 +32,7 @@ public class CustomerService {
 
     @Transactional
     public void deleteCustomer(int id){
-        if (customerIsPresent(id)){
+        if (!customerIsPresent(id)){
             throw new NotFoundException("Customer is not found");
         }
         customerRepository.deleteById(id);

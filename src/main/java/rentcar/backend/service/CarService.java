@@ -30,7 +30,7 @@ public class CarService {
 
     @Transactional
     public void deleteCar(int id) {
-        if (carIsPresent(id)) {
+        if (!carIsPresent(id)) {
             throw new NotFoundException("Car is not found");
         }
         carRepository.deleteById(id);
