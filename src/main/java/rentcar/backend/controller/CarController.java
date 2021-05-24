@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import rentcar.backend.entity.Car;
 import rentcar.backend.service.CarService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/cars")
 public class CarController {
@@ -39,7 +41,7 @@ public class CarController {
     }
 
     @PutMapping("/{id}")
-    public Car updateCar(@RequestBody Car car, @PathVariable int id) {
+    public Car updateCar(@Valid @RequestBody Car car, @PathVariable int id) {
         car.setId(id);
         return carService.updateCar(car);
     }

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "cars")
@@ -27,18 +28,23 @@ public class Car implements DataModel {
 
     @OneToOne
     @JoinColumn(name = "brand_id")
+    @NotBlank(message = "Name is mandatory")
     private Brand brand;
 
     @Column(name = "color_name")
+    @NotBlank(message = "Name is mandatory")
     private String colorName;
 
     @Column(name = "model_year")
+    @NotBlank(message = "Name is mandatory")
     private String modelYear;
 
     @Column(name = "daily_price")
+    @NotBlank(message = "Name is mandatory")
     private int dailyPrice;
 
     @Column(name = "description")
+    @NotBlank(message = "Name is mandatory")
     private String description;
 
 }
