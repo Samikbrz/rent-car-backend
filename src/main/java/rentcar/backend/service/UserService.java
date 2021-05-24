@@ -38,6 +38,14 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    @Transactional
+    public User updateUser(User user){
+        if (userIsPresent(user.getId())){
+            throw new NotFoundException("User is not found!");
+        }
+        return userRepository.save(user);
+    }
+
     private boolean userIsPresent(int id) {
         optionalUser = userRepository.findById(id);
         return optionalUser.isPresent();
