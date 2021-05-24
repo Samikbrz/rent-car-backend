@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name = "car")
+@Table(name = "cars")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

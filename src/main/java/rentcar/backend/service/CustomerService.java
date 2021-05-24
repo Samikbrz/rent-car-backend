@@ -18,4 +18,8 @@ public class CustomerService {
     public Iterable<Customer> getAllCustomers(){
         return customerRepository.findAll();
     }
+
+    public Customer addCustomer(Customer customer){
+        return customerRepository.save(customer);
+    }
 }

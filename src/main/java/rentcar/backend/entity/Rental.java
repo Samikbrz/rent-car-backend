@@ -15,7 +15,7 @@ import javax.persistence.JoinColumn;
 import java.util.Date;
 
 @Entity
-@Table(name = "rental")
+@Table(name = "rentals")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

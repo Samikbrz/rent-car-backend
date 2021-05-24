@@ -3,31 +3,30 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd"
                    logicalFilePath="rentcar-1_0_0.xml">
-    <changeSet id="create_car_table" author="sami">
-        <createTable schemaName="${schema}" tableName="CAR">
+    <changeSet id="create_brand_table" author="sami">
+        <createTable schemaName="${schema}" tableName="BRANDS">
             <column name="ID" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="BRAND_ID" type="int"/>
+            <column name="NAME" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="create_car_table" author="sami">
+        <createTable schemaName="${schema}" tableName="CARS">
+            <column name="ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="BRAND_ID" type="bigint">
+                <constraints foreignKeyName="FK_BRANDS_ID" references="BRANDS(ID)"/>
+            </column>
             <column name="COLOR_NAME" type="varchar(25)"/>
             <column name="MODEL_YEAR" type="varchar(4)"/>
             <column name="DAILY_PRICE" type="float"/>
             <column name="DESCRIPTION" type="varchar(250)"/>
         </createTable>
     </changeSet>
-    <changeSet id="create_brand_table" author="sami">
-        <createTable schemaName="${schema}" tableName="BRAND">
-            <column name="ID" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="NAME" type="varchar(50)"/>
-            <column name="BRAND_ID" type="bigint">
-                <constraints foreignKeyName="FK_BRAND_ID" references="BRAND(ID)"/>
-            </column>
-        </createTable>
-    </changeSet>
-    <changeSet id="create_user_table" author="sami">
-        <createTable schemaName="${schema}" tableName="USER">
+    <changeSet id="create_users_table" author="sami">
+        <createTable schemaName="${schema}" tableName="USERS">
             <column name="ID" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
@@ -39,12 +38,12 @@
         </createTable>
     </changeSet>
     <changeSet id="create_customer_table" author="sami">
-        <createTable schemaName="${schema}" tableName="CUSTOMER">
+        <createTable schemaName="${schema}" tableName="CUSTOMERS">
             <column name="ID" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
             <column name="USER_ID" type="bigint">
-                <constraints foreignKeyName="FK_USER_ID" references="USER(ID)"/>
+                <constraints foreignKeyName="FK_USERS_ID" references="USERS(ID)"/>
             </column>
             <column name="PHONE_NUMBER" type="varchar(11)"/>
             <column name="ADDRESS" type="varchar(250)"/>
@@ -52,15 +51,15 @@
         </createTable>
     </changeSet>
     <changeSet id="create_rental_table" author="sami">
-        <createTable schemaName="${schema}" tableName="RENTAL">
+        <createTable schemaName="${schema}" tableName="RENTALS">
             <column name="ID" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
             <column name="CAR_ID" type="bigint">
-                <constraints foreignKeyName="FK_CAR_ID" references="CAR(ID)"/>
+                <constraints foreignKeyName="FK_CARS_ID" references="CARS(ID)"/>
             </column>
             <column name="USER_ID" type="bigint">
-                <constraints foreignKeyName="FK_USER_ID" references="USER(ID)"/>
+                <constraints foreignKeyName="FK_USER_ID" references="USERS(ID)"/>
             </column>
             <column name="RENT_DATE" type="datetime"/>
             <column name="RETURN_DATE" type="datetime"/>

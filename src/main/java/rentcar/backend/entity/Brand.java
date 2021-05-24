@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "brand")
+@Table(name = "brands")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

@@ -12,9 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "customers")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -30,9 +31,11 @@ public class Customer implements DataModel{
     private User user;
 
     @Column(name = "phone_number")
+    @NotBlank(message = "Name is mandatory")
     private String phoneNumber;
 
     @Column(name = "address")
+    @NotBlank(message = "Name is mandatory")
     private String address;
 
     @Column(name = "findeks_score")
