@@ -13,6 +13,7 @@ import rentcar.backend.entity.User;
 import rentcar.backend.service.UserService;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -28,6 +29,11 @@ public class UserController {
     @GetMapping
     public Iterable<User> getAllUsers(){
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/{name}")
+    public Optional<User> getUsersByName(@PathVariable String name){
+        return userService.getUsersByName(name);
     }
 
     @PostMapping

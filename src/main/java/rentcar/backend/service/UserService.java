@@ -25,6 +25,10 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public Optional<User> getUsersByName(String name){
+        return userRepository.findByName(name);
+    }
+
     @Transactional
     public User addUser(User user){
         return userRepository.save(user);

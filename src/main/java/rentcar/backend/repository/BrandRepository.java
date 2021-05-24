@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository
 public interface BrandRepository extends CrudRepository<Brand,Integer> {
 
-    @Query(value = "SELECT * FROM brand WHERE name=:name",nativeQuery = true)
+    @Query(value = "SELECT * FROM brands WHERE first_name=:name",nativeQuery = true)
     Optional<Brand> findByName(@Param("name") String name);
 }
