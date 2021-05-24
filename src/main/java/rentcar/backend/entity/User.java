@@ -41,6 +41,6 @@ public class User implements DataModel{
     private String password;
 
     @Column(name = "status")
-    private boolean status;
+    private String status;
 
 }
