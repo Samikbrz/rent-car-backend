@@ -1,11 +1,7 @@
 package rentcar.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rentcar.backend.entity.Rental;
 import rentcar.backend.service.RentalService;
 
@@ -30,6 +26,11 @@ public class RentalController {
     @PostMapping
     public Rental addRental(@Valid @RequestBody Rental rental){
         return rentalService.addRental(rental);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteRental(@PathVariable int id){
+        rentalService.deleteRental(id);
     }
 
 }
