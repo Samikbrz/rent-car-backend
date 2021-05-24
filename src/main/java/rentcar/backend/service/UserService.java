@@ -3,14 +3,18 @@ package rentcar.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rentcar.backend.entity.User;
+import rentcar.backend.exception.NotFoundException;
 import rentcar.backend.repository.UserRepository;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
+
+    private Optional<User> optionalUser;
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -24,6 +28,19 @@ public class UserService {
     @Transactional
     public User addUser(User user){
         return userRepository.save(user);
+    }
+
+    @Transactional
+    public void deleteUser(int id){
+        if (userIsPresent(id)){
+            throw new NotFoundException("User is not found!");
+        }
+        userRepository.deleteById(id);
+    }
+
+    private boolean userIsPresent(int id) {
+        optionalUser = userRepository.findById(id);
+        return optionalUser.isPresent();
     }
 
 }
