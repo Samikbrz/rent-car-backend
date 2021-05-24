@@ -38,8 +38,17 @@ public class CustomerService {
         customerRepository.deleteById(id);
     }
 
+    @Transactional
+    public Customer updateCustomer(Customer customer){
+        if (customerIsPresent(customer.getId())){
+            throw new NotFoundException("Customer is not found");
+        }
+        return customerRepository.save(customer);
+    }
+
     private boolean customerIsPresent(int id) {
         optionalCustomer = customerRepository.findById(id);
         return optionalCustomer.isPresent();
     }
+    
 }
