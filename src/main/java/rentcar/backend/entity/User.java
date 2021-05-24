@@ -32,6 +32,10 @@ public class User implements DataModel{
     @NotBlank(message = "Name is mandatory")
     private String lastName;
 
+    @Column(name = "tc_no")
+    @NotBlank(message = "Name is mandatory")
+    private String tcNo;
+
     @Column(name = "email")
     @NotBlank(message = "Name is mandatory")
     private String email;

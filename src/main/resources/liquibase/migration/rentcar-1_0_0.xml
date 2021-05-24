@@ -32,6 +32,7 @@
             </column>
             <column name="FIRST_NAME" type="varchar(50)"/>
             <column name="LAST_NAME" type="varchar(50)"/>
+            <column name="TC_NO" type="varchar(11)"/>
             <column name="EMAIL" type="varchar(50)"/>
             <column name="PASSWORD" type="varchar(50)"/>
             <column name="STATUS" type="varchar(3)"/>

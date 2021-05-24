@@ -3,6 +3,7 @@ package rentcar.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rentcar.backend.entity.User;
+import rentcar.backend.exception.AlreadyExistsException;
 import rentcar.backend.exception.NotFoundException;
 import rentcar.backend.repository.UserRepository;
 
@@ -31,6 +32,9 @@ public class UserService {
 
     @Transactional
     public User addUser(User user){
+        if (userRepository.findByTCNo(user.getTcNo()).isPresent()){
+            throw new AlreadyExistsException("This user already exist!");
+        }
         return userRepository.save(user);
     }
 
